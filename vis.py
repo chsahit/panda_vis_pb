@@ -1,14 +1,11 @@
 from __future__ import annotations
 
-import copy
-import sys
 import pickle
 
 import tiny_tamp.pb_utils as pbu
 from tiny_tamp.structs import (
     DEFAULT_JOINT_POSITIONS,
     TABLE_POSE,
-    GoalBelief,
     ObjectState,
     Sequence,
     SimulatorInstance,
@@ -42,7 +39,6 @@ def main():
 
     pbu.wait_if_gui("Press enter to start visualization", client=sim_instance.client)
 
-    plan_components = []
     with open("traj.pkl", "rb") as f:
         path = pickle.load(f)
     joints = (0, 1, 2, 3, 4, 5, 6)
